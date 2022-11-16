@@ -1,41 +1,43 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Csharp_Joppes_Djurfamilj
 {
-    public class Animal
+    public abstract class Animal
     {
-        int age;
-        string name;
-        string fav_food;
-        string breed;
-        bool Hungry;
-        
+        int Age;
+        int CurrentHunger;
+        public int currenthunger { get { return CurrentHunger; } set { CurrentHunger = currenthunger; } }
 
-        public void Interact()
-        {
+        string Name;
+        public string name { get { return Name; } set { Name = name; } }
+        public int age { get { return Age; } set { Age = value; } }
 
-        }
-
-        public void eat(string food)
-        {
-
-        }
-
-        public void hungry_animal()
-
-        {
-
-        }
 
         public override string ToString()
         {
-            return base.ToString(); 
+
+
+
+            return "The Animal is called:" + Name + "And its :" + Age + "years old";
         }
 
+        public void Interact()
+        {
+            
+        }
 
+        public Animal(string name, int Aage)
+        {
+            Name = name;
+            Age = Aage;
+        }
     }
+
+
 }

@@ -6,26 +6,26 @@ using System.Threading.Tasks;
 
 namespace Csharp_Joppes_Djurfamilj
 {
-    public class Dog:Animal
+    public class Dog : Animal
     {
-        public void dog(string name, int age)
+        public void dog()
 
         {
-
+            
         }
 
-        public void Interact()
+        public Dog(string name, int age)
+            :base(name, age)
         {
+            
+            
 
         }
 
         public override string ToString()
         {
-            return base.ToString(); 
-
+            return "The Dog is called:" + base.name + "The dog is" + base.age + "years old";
 
         }
-
-
     }
 }
