@@ -6,22 +6,22 @@ using System.Threading.Tasks;
 
 namespace Csharp_Joppes_Djurfamilj
 {
-    public class Puppy
+    public class Puppy:Dog
     {
-        public void puppy(int months)
+        int months;
+        string type = "Puppy";
 
+        public Puppy(string name, int age, int months) : base(name, age)
         {
-
+            this.months = months;   
         }
 
-        public void Interact()
-        {
 
-        }
 
         public override string ToString()
         {
-            return base.ToString();
+            return "The " + type + " is called: " + base.name + ", The " + type + " is " + months + " months old";
+
         }
 
     }

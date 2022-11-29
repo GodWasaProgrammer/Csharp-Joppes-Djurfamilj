@@ -3,23 +3,25 @@
     public class PetOwner
     {
         int age;
-        public List<Animal> pets = new List<Animal>();
+        public List<Animal> pets = new List<Animal>(); // our list of animals
 
-        public int Age { get { return age; } set { age = value; } }
+        public int Age { get { return age; } set { age = value; } } // property for age
 
         private string name;
 
-        public string Name { get { return name; } set { name = value; } }
+        public string Name { get { return name; } set { name = value; } } // property for name
         public int Count { get { return pets.Count; } }
 
-        public int selector;
+        int selector; // our index selection number
 
 
-        public void List_Animals()
+
+        public void List_Animals() // handles listing animaks
         {
             foreach (object animals in pets)
             {
                 Console.WriteLine(animals);
+                Console.WriteLine("-----------------------------------------------");
             }
 
         }
@@ -27,14 +29,31 @@
         public void PetChoice()
         {
             Console.WriteLine("Pick the animal with which you wish to interact");
-            string petchoice = Console.ReadLine();
+            Console.WriteLine("-------------------------------------------------");
+
+            string petchoice;
+
+
+
+            petchoice = Console.ReadLine();
+
+            while (petchoice != "0" && petchoice != "1" && petchoice != "2") // input verification logic
+            {
+
+                Console.WriteLine("your input has to be a number, 0, or 1,or 2!");
+                petchoice = Console.ReadLine();
+                Console.WriteLine("-----------------------------------------------");
+            }
+
+
             selector = Int32.Parse(petchoice);
             // selector is index 
         }
         public void Play()
         {
             Console.WriteLine("Play method");
-            
+            Console.WriteLine("-----------------------------------------");
+
             List_Animals();
             PetChoice();
             // selector acts as index for petlist.
@@ -45,22 +64,37 @@
 
         public void Feed()
         {
+
+
             string FoodIN;
             int Foodchoice;
+            
 
             Console.WriteLine("Pick the food you wish to feed the animal with,input correlating number");
             Console.WriteLine("1. steak");
             Console.WriteLine("2. Catnip");
-            
-            Foodchoice = Int32.Parse(Console.ReadLine());
 
-            if(Foodchoice == 1)
+            // Foodchoice = Int32.Parse(Console.ReadLine());
+            
+
+            FoodIN = Console.ReadLine();
+
+            
+            while (!int.TryParse(FoodIN, out Foodchoice))
             {
-                FoodIN = "steak";
+                Console.WriteLine("This is not a number!");
+                Console.WriteLine("Input 1 or 2");
+                FoodIN = Console.ReadLine();
+            }
+
+            Console.WriteLine($"Your choice is: {Foodchoice}");
+
+
+            if (Foodchoice == 1)
+            {
+                FoodIN = "Steak";
                 PetChoice();
                 pets[selector].Eat(FoodIN);
-                pets[selector].currenthunger++;
-                pets[selector].currenthunger++;
             }
 
             if (Foodchoice == 2)
@@ -68,11 +102,14 @@
                 FoodIN = "Catnip";
                 PetChoice();
                 pets[selector].Eat(FoodIN);
-                pets[selector].currenthunger++;
-                pets[selector].currenthunger++;
             }
 
-            
+            if (Foodchoice != 1 && Foodchoice != 2)
+            {
+                Console.WriteLine("There is no food correlating to that number. Choose again.");
+                Feed();
+            }
+
 
         }
 
@@ -85,15 +122,34 @@
             {
 
                 Console.WriteLine("Main Menu");
-            Console.WriteLine("Menuchoice:");
-            Console.WriteLine("1. Play Fetch");
-            Console.WriteLine("2. Feed Animal");
-            Console.WriteLine("3. List Joppes Animals");
-            Console.WriteLine("Enter the appropriate number for your choice!");
-            
+                Console.WriteLine("Menuchoice:");
+                Console.WriteLine("1. Play Fetch");
+                Console.WriteLine("2. Feed Animal");
+                Console.WriteLine("3. List Joppes Animals");
+                Console.WriteLine("Enter the appropriate number for your choice!");
 
-            
-                menu = Int32.Parse(Console.ReadLine());
+
+                // menu = Int32.Parse(Console.ReadLine());
+
+                
+                var input = Console.ReadLine();
+
+                
+                while (!int.TryParse(input, out menu))
+                {
+                    input = Console.ReadLine();
+                    
+                }
+
+                if (menu != 1 && menu != 2 && menu != 3 && menu != 3 && menu != 4)
+                {
+                    Console.WriteLine("This is not an acceptable choice!");
+                    Console.WriteLine("Acceptable choices are 1,2,3,4(exit)");
+                    
+                }
+
+                Console.WriteLine($"Your choice is: {menu}");
+
                 loop = menu;
 
                 switch (menu)
@@ -109,9 +165,8 @@
                     case 3:
                         List_Animals();
                         break;
-                    default:
-                        Console.WriteLine("Incorrect choice");
-                        throw new ArgumentOutOfRangeException("Unknown Value");
+                    
+
 
 
 

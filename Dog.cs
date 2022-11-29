@@ -10,40 +10,39 @@
         public void dog()
 
         {
-
+            base.fav_food = fav_food;
         }
 
         public Dog(string name, int age)
             : base(name, age)
         {
-            currenthunger = 2;
 
+            dog();
 
         }
-        public new void Interact()
+        public override void Interact()
         {
-            currenthunger--;
 
-            if (currenthunger == 0)
+
+            if (hunger == true)
             {
                 Console.WriteLine($"The {type} is hungry and wont play.");
                 Console.WriteLine($"The {type} Growls hungrily");
                 Hungry_Animal();
             }
-            else if (currenthunger > 0)
+            else if (hunger == false)
             {
                 Console.WriteLine($"The {type} plays with joppe");
-                this.currenthunger--;
-                if (currenthunger == 0)
-                {
-                    hunger = true;
-                }
+
+
+                hunger = true;
+
             }
         }
 
         public override string ToString()
         {
-            return "The" + type + "is called:" + base.name + "The" + type + " is" + base.age + "years old" + "his current hunger is:" + currenthunger;
+            return "The " + type + " is called: " + base.name + " The " + type + " is " + base.age + " years old";
 
         }
     }

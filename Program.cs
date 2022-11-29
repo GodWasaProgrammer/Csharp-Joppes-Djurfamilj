@@ -4,8 +4,11 @@
     {
         static void Main()
         {
-            Console.WriteLine("Joppes Djurfamilj");
 
+
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
+            Console.WriteLine("Joppes Djurfamilj");
+            Console.WriteLine("-----------------------------------------------");
             PetOwner owner = new PetOwner();
             owner.Name = "Joppe";
             owner.Age = 25;
@@ -17,7 +20,11 @@
 
             owner.pets.Add(new Dog(petname, age));
 
-            owner.pets.Add(new Cat(petname, age));
+            owner.pets.Add(new Cat("Meowzer", 3));
+
+            owner.pets.Add(new Puppy("Mini", 0 , 8));
+
+
             Console.WriteLine(owner.ToString());
 
             owner.List_Animals();

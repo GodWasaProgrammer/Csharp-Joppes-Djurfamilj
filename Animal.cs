@@ -2,19 +2,18 @@
 {
     public abstract class Animal
     {
-        int Age;
-        int CurrentHunger = 2;
-        bool Hunger;
+        int Age; // the animals age
 
-        public bool hunger {get { return Hunger; } set { Hunger = value; } }
-        public int currenthunger { get { return CurrentHunger; } set { CurrentHunger = currenthunger; } }
+        bool Hunger; // animals hunger bool
 
-        string Fav_food = "grass";
+        public bool hunger { get { return Hunger; } set { Hunger = value; } } // property for Hunger
 
-        public string fav_food { get { return Fav_food; } set { Fav_food = value; } }
+        string Fav_food; // favorite food. overridden in derivative classes
+
+        public string fav_food { get { return Fav_food; } set { Fav_food = value; } } // fav food property
         string Name;
-        public string name { get { return Name; } set { Name = name; } }
-        public int age { get { return Age; } set { Age = value; } }
+        public string name { get { return Name; } set { Name = name; } } // name property
+        public int age { get { return Age; } set { Age = value; } } // Age property
 
 
         public override string ToString()
@@ -25,51 +24,42 @@
             return "The Animal is called:" + Name + "And its :" + Age + "years old";
         }
 
-        public void Interact()
+        public virtual void Interact()
 
         {
 
-            if (currenthunger == 0)
+            if (hunger == true)
             {
                 Hungry_Animal();
             }
-            else if(currenthunger > 0)
-            { 
+            else if (hunger == false)
             {
-                Console.WriteLine($"The Animal plays with joppe");
-                    currenthunger--;
-
-                if(currenthunger == 0)
                 {
-                    Hunger = true;
-                }
+                    Console.WriteLine($"The Animal plays with joppe");
+                    hunger = true;
+
+
                 }
             }
         }
 
-        public void Eat(string favoritefoodZ)
+        public virtual void Eat(string favoritefoodZ)
         {
-            if(Hunger == true)
-            { 
+
             if (favoritefoodZ == Fav_food)
             {
-                if (currenthunger < 2)
-                {
-                    currenthunger++;
-                }
+                hunger = false;
+                Console.WriteLine($"Your pet eats the{Fav_food}");
 
-                Console.WriteLine("Your Pet is fully fed.");
-                Hunger = false;
             }
 
-            else
+            if (Fav_food != favoritefoodZ)
             {
-                    Console.WriteLine($"Your pet isnt hungry. values: {currenthunger} , {Hunger}");
-            }
+                Console.WriteLine("Your pet doesnt like the type of food.");
             }
         }
 
-        public void Hungry_Animal()
+        public virtual void Hungry_Animal()
         {
             Console.WriteLine("oOoooooOoooOooo hungry");
         }
@@ -77,7 +67,7 @@
         {
             Name = name;
             Age = Aage;
-            CurrentHunger = 2;
+
         }
     }
 
