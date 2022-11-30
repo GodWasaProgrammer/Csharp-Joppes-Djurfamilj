@@ -18,12 +18,13 @@
             int age = 5;
             string petname = "fido";
 
-            owner.pets.Add(new Dog(petname, age));
+            owner.pets.Add(new Dog(petname, age, "Labrador"));
+            
+            owner.pets.Add(new Cat("Meowzer", 3, "Maine Coon"));
+            
 
-            owner.pets.Add(new Cat("Meowzer", 3));
-
-            owner.pets.Add(new Puppy("Mini", 0 , 8));
-
+            owner.pets.Add(new Puppy("Mini", 0 , 8, "Great Dane"));
+            
 
             Console.WriteLine(owner.ToString());
 

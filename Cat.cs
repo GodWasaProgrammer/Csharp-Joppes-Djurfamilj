@@ -5,8 +5,8 @@
         string type = "Cat";
         new string fav_food = "Catnip";
 
-        public Cat(string name, int age)
-            : base(name, age)
+        public Cat(string name, int age, string breed)
+            : base(name, age, breed)
         {
 
             cat();
@@ -37,7 +37,7 @@
 
         public override string ToString()
         {
-            return "The " + type + " is called: " + base.name + ", and its " + base.age + " years old";
+            return "The " + type + " is called: " + base.name + ", and its " + base.age + " years old, and is a " + Breed;
 
         }
 

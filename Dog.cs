@@ -13,8 +13,8 @@
             base.fav_food = fav_food;
         }
 
-        public Dog(string name, int age)
-            : base(name, age)
+        public Dog(string name, int age, string breed)
+            : base(name, age, breed)
         {
 
             dog();
@@ -42,7 +42,7 @@
 
         public override string ToString()
         {
-            return "The " + type + " is called: " + base.name + " The " + type + " is " + base.age + " years old";
+            return "The " + type + " is called: " + base.name + " The " + type + " is " + base.age + " years old and is a "+ Breed;
 
         }
     }

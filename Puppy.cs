@@ -11,7 +11,7 @@ namespace Csharp_Joppes_Djurfamilj
         int months;
         string type = "Puppy";
 
-        public Puppy(string name, int age, int months) : base(name, age)
+        public Puppy(string name, int age, int months, string breed) : base(name, age, breed)
         {
             this.months = months;   
         }
@@ -20,7 +20,7 @@ namespace Csharp_Joppes_Djurfamilj
 
         public override string ToString()
         {
-            return "The " + type + " is called: " + base.name + ", The " + type + " is " + months + " months old";
+            return "The " + type + " is called: " + base.name + ", The " + type + " is " + months + " months old and is a " + Breed;
 
         }
 

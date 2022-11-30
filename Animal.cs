@@ -15,13 +15,16 @@
         public string name { get { return Name; } set { Name = name; } } // name property
         public int age { get { return Age; } set { Age = value; } } // Age property
 
+        string breed;
+        public string Breed { get { return breed; } set { breed = Breed; } }
+
 
         public override string ToString()
         {
 
 
 
-            return "The Animal is called:" + Name + "And its :" + Age + "years old";
+            return "The Animal is called:" + Name + "And its :" + Age + "years old, and is a " + breed;
         }
 
         public virtual void Interact()
@@ -63,11 +66,11 @@
         {
             Console.WriteLine("oOoooooOoooOooo hungry");
         }
-        public Animal(string name, int Aage)
+        public Animal(string name, int Aage, string inputbreed)
         {
             Name = name;
             Age = Aage;
-
+            breed = inputbreed;
         }
     }
 

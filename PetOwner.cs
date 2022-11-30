@@ -68,18 +68,18 @@
 
             string FoodIN;
             int Foodchoice;
-            
+
 
             Console.WriteLine("Pick the food you wish to feed the animal with,input correlating number");
             Console.WriteLine("1. steak");
             Console.WriteLine("2. Catnip");
 
             // Foodchoice = Int32.Parse(Console.ReadLine());
-            
+
 
             FoodIN = Console.ReadLine();
 
-            
+
             while (!int.TryParse(FoodIN, out Foodchoice))
             {
                 Console.WriteLine("This is not a number!");
@@ -131,21 +131,21 @@
 
                 // menu = Int32.Parse(Console.ReadLine());
 
-                
+
                 var input = Console.ReadLine();
 
-                
+
                 while (!int.TryParse(input, out menu))
                 {
                     input = Console.ReadLine();
-                    
+
                 }
 
                 if (menu != 1 && menu != 2 && menu != 3 && menu != 3 && menu != 4)
                 {
                     Console.WriteLine("This is not an acceptable choice!");
                     Console.WriteLine("Acceptable choices are 1,2,3,4(exit)");
-                    
+
                 }
 
                 Console.WriteLine($"Your choice is: {menu}");
@@ -165,7 +165,7 @@
                     case 3:
                         List_Animals();
                         break;
-                    
+
 
 
 
